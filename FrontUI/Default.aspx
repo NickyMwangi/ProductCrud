@@ -40,25 +40,26 @@
                     <asp:Label ID="lblMessage" runat="server" ForeColor="Green" Visible="false"></asp:Label>
                     <h3>Add Product</h3>
                     <div>
-                        <asp:ValidationSummary ID="vsSummary" runat="server" ShowSummary="true" ForeColor="Red" />
+                        <asp:ValidationSummary ID="vsSummary" runat="server" ShowSummary="true" ForeColor="Red" ValidationGroup="AddProductForm" />
                     </div>
                     <div class="mb-2">
                         <asp:TextBox ID="TextBoxName" runat="server" CssClass="form-control" Placeholder="Name"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvProductName" runat="server" ControlToValidate="TextBoxName" ErrorMessage="Product Name is required." ForeColor="Red" />
+                        <asp:RequiredFieldValidator ID="rfvProductName" runat="server" ControlToValidate="TextBoxName" 
+                            ErrorMessage="Product Name is required." ForeColor="Red" ValidationGroup="AddProductForm" />
                     </div>
                     <div class="mb-2">
                         <asp:TextBox ID="TextBoxPrice" runat="server" CssClass="form-control" Placeholder="Price"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvPrice" runat="server" ControlToValidate="TextBoxPrice"
-                            ErrorMessage="Price is required." ForeColor="Red" />
+                            ErrorMessage="Price is required." ForeColor="Red" ValidationGroup="AddProductForm" />
                         <asp:RangeValidator ID="rvPrice" runat="server" ControlToValidate="TextBoxPrice" MinimumValue="0.01" MaximumValue="9999.99"
-                            ErrorMessage="Price must be between 0.01 and 9999.99." ForeColor="Red" />
+                            ErrorMessage="Price must be between 0.01 and 9999.99." ForeColor="Red" ValidationGroup="AddProductForm" />
                     </div>
                     <div class="mb-2">
                         <asp:TextBox ID="TextBoxCategory" runat="server" CssClass="form-control" Placeholder="Category"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvCategory" runat="server" ControlToValidate="TextBoxCategory"
-                            InitialValue="" ErrorMessage="Please select a category." ForeColor="Red" />
+                            InitialValue="" ErrorMessage="Category id required" ForeColor="Red" ValidationGroup="AddProductForm" />
                     </div>
-                    <asp:Button ID="AddProduct" runat="server" CssClass="btn btn-primary" Text="Add Product" OnClick="AddProduct_Click" />
+                    <asp:Button ID="AddProduct" runat="server" CssClass="btn btn-primary" Text="Add Product" OnClick="AddProduct_Click" ValidationGroup="AddProductForm" />
                 </div>
             </div>
         </div>

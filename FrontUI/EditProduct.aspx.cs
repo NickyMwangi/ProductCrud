@@ -9,6 +9,9 @@ namespace FrontUI
 {
     public partial class EditProduct : Page
     {
+        // DbContext
+        // For a big project this would be under Infrastructure project
+        // 
         private ProdDbContext db = new ProdDbContext();
         private int ProductID => int.Parse(Request.QueryString["Id"]);
         protected void Page_Load(object sender, EventArgs e)
