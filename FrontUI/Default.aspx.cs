@@ -21,8 +21,20 @@ namespace FrontUI
         // load all the products
         private void IndexView()
         {
-            products.DataSource = db.Products.ToList();
-            products.DataBind();
+            try
+            {
+                products.DataSource = db.Products.ToList();
+                products.DataBind();
+                tableMessage.Text = "Product loaded successfully!";
+                tableMessage.ForeColor = System.Drawing.Color.Green;
+            }
+            catch (Exception exp)
+            {
+                _ = exp.Message;
+                tableMessage.Text = "An error occurred while processing the request";
+                tableMessage.ForeColor = System.Drawing.Color.Red;
+            }
+            tableMessage.Visible = true;
         }
 
         //Add product to the DB
@@ -41,8 +53,8 @@ namespace FrontUI
                 db.SaveChanges();
                 // Show success message
                 lblMessage.Text = "Product added successfully!";
-                                    lblMessage.ForeColor = System.Drawing.Color.Green; 
-           
+                lblMessage.ForeColor = System.Drawing.Color.Green;
+
             }
             else
             {
@@ -88,7 +100,7 @@ namespace FrontUI
         {
             int productId = (int)e.Keys["Id"];
             var product = db.Products.Find(productId);
-            if(product != null)
+            if (product != null)
             {
                 db.Products.Remove(product);
                 db.SaveChanges();

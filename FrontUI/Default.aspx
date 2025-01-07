@@ -5,6 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h2 class="text-center">Products List</h2>
+                 <asp:Label ID="tableMessage" runat="server" ForeColor="Green" Visible="false"></asp:Label>
                 <hr />
                 <asp:GridView ID="products" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered" OnRowEditing="InitiateEdit"
                     OnRowDeleting="DeleteProduct" OnRowCancelingEdit="CancelEdit"
